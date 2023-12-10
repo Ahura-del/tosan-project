@@ -1,0 +1,92 @@
+.post{
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    
+  }
+  .postContainer{
+    padding: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    background: #fff;
+  }
+  .postHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  .userData{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .userPic{
+    width: 2.5rem;
+    height: 2rem;
+    background-color: aqua;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .settingPost{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  .settingPost>button{
+    width: fit-content;
+    padding: .7rem;
+    border-radius: 10px;
+    text-align: right;
+    background: #eee;
+    border: unset;
+  }
+  .postBody{
+    width: 100%;
+    height: 7rem;
+    background: #e1e1e1;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .commentIcon{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .commentIcon>button{
+    width: fit-content;
+    padding: .7rem;
+    border-radius: 10px;
+    text-align: right;
+    background: #eee;
+    border: unset;
+  
+  }
+  
+  .comments{
+    margin-top: 1rem;
+   padding: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    background: #fff;
+  }
+  .comments>p{
+    padding: unset;
+    margin: 0;
+  }
+  
+  .commentUserName{
+    font-size: small;
+    padding: unset;
+    margin: 0;
+  }
+  .commentEmail{
+    font-size: small;
+    padding: unset;
+    margin: 0;
+  }
