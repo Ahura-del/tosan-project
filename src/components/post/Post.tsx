@@ -8,12 +8,13 @@ interface Props {
   postData: PostType;
   comments: CommentsType[];
   removePost: (id: number) => void;
+  editPost: (id: number, title: string, body: string) => void;
 }
 
-const Post: FC<Props> = ({ postData, comments, removePost }) => {
+const Post: FC<Props> = ({ postData, comments, removePost, editPost }) => {
   const { userId, id } = postData;
   const [showComment, setShowComment] = useState<boolean>(false);
-  const [edit, setEdit] = useState<boolean>(true);
+  const [edit, setEdit] = useState<boolean>(false);
   const [title, setTitle] = useState<string>(postData.title!);
   const [body, setBody] = useState<string>(postData.body!);
 
@@ -21,7 +22,10 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
     setShowComment(!showComment);
   };
 
-
+  const editHandler = (id: number) => {
+    setEdit(false);
+    editPost(id, title, body);
+  };
 
   return (
     <div className="post">
@@ -34,12 +38,12 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
           {userId === 1 && (
             <div className="settingPost">
               {edit ? (
-                <button onClick={() => setEdit(false)}>
-                  <FaEdit color="blue" />
+                <button onClick={() => editHandler(id)}>
+                  <FaCheck color="blue" />
                 </button>
               ) : (
-                <button>
-                  <FaCheck color="blue" />
+                <button onClick={() => setEdit(true)}>
+                  <FaEdit color="blue" />
                 </button>
               )}
               <button onClick={() => removePost(id)}>
@@ -57,17 +61,17 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
         <div className="postContent">
           <textarea
             className="postTitle"
-            style={{ textDecoration: edit ? "none" : "underline" }}
+            style={{ textDecoration: edit ? "underline" : "none" }}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            readOnly={edit}
+            readOnly={!edit}
           />
           <textarea
             className="postBodyText"
             value={body}
             rows={6}
-            style={{ textDecoration: edit ? "none" : "underline" }}
-            readOnly={edit}
+            style={{ textDecoration: edit ? "underline" : "none" }}
+            readOnly={!edit}
             onChange={(e) => setBody(e.target.value)}
           />
         </div>
