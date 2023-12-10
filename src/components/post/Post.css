@@ -27,7 +27,10 @@
     height: 2rem;
     background-color: aqua;
     border-radius: 50%;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
   }
   .settingPost{
     display: flex;

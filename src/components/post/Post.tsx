@@ -25,16 +25,16 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
       <div className="postContainer">
         <div className="postHeader">
           <div className="userData">
-            <span className="userPic" />
+            <span className="userPic">😊️</span>
             <p className="userName">User {userId}</p>
           </div>
           {userId === 1 && (
             <div className="settingPost">
               <button>
-                <FaEdit />
+                <FaEdit color="blue" />
               </button>
               <button onClick={() => removePost(id)}>
-                <FaTrash />
+                <FaTrash  color="red" />
               </button>
             </div>
           )}
@@ -42,7 +42,7 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
         <div className="postBody">Post {id}</div>
         <div className="commentIcon">
           <button onClick={showCommentHandler}>
-            <FaComment />
+            <FaComment color="purple" />
           </button>
         </div>
         <div className="postContent">
