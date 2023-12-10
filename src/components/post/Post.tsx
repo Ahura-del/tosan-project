@@ -1,6 +1,7 @@
 import './Post.css'
 import { FC } from "react";
 import { FaComment,FaTrash, FaEdit } from "react-icons/fa";
+import Comment from '../comment/Comment';
 const Post:FC = () => {
   return (
     <div className='post'>
@@ -24,18 +25,7 @@ const Post:FC = () => {
           <p>body</p>
         </div>
         </div>
-        <div className='comments'>
-          <div>
-          <div className='userData'>
-          <span className='userPic' />
-          <div>
-          <p className='commentUserName'>User 1</p>
-          <p className='commentEmail'>email</p>
-          </div>
-          </div>
-          <p>comment</p>
-          </div>
-        </div>
+        <Comment />
       </div>
   )
 }

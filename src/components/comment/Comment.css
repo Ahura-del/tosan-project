@@ -1,0 +1,22 @@
+.comments{
+    margin-top: 1rem;
+   padding: 1rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    background: #fff;
+  }
+  .comments>p{
+    padding: unset;
+    margin: 0;
+  }
+  
+  .commentUserName{
+    font-size: small;
+    padding: unset;
+    margin: 0;
+  }
+  .commentEmail{
+    font-size: small;
+    padding: unset;
+    margin: 0;
+  }
