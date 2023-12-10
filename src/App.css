@@ -3,6 +3,9 @@ body, html,*{
   box-sizing: border-box;
   
 }
+button{
+  cursor: pointer;
+}
 .App {
  max-width: 1024px;
  overflow: hidden;
