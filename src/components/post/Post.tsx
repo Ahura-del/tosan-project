@@ -1,10 +1,8 @@
 import "./Post.css";
 import { FC, useState } from "react";
-import { FaComment, FaTrash, FaEdit } from "react-icons/fa";
+import { FaComment, FaTrash, FaEdit, FaCheck } from "react-icons/fa";
 import Comment from "../comment/Comment";
 import { CommentsType, PostType } from "../../Types/postType";
-
-
 
 interface Props {
   postData: PostType;
@@ -13,12 +11,17 @@ interface Props {
 }
 
 const Post: FC<Props> = ({ postData, comments, removePost }) => {
-  const { userId, body, title, id } = postData;
+  const { userId, id } = postData;
   const [showComment, setShowComment] = useState<boolean>(false);
+  const [edit, setEdit] = useState<boolean>(true);
+  const [title, setTitle] = useState<string>(postData.title!);
+  const [body, setBody] = useState<string>(postData.body!);
 
   const showCommentHandler = () => {
-    setShowComment(!showComment); 
+    setShowComment(!showComment);
   };
+
+
 
   return (
     <div className="post">
@@ -30,11 +33,17 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
           </div>
           {userId === 1 && (
             <div className="settingPost">
-              <button>
-                <FaEdit color="blue" />
-              </button>
+              {edit ? (
+                <button onClick={() => setEdit(false)}>
+                  <FaEdit color="blue" />
+                </button>
+              ) : (
+                <button>
+                  <FaCheck color="blue" />
+                </button>
+              )}
               <button onClick={() => removePost(id)}>
-                <FaTrash  color="red" />
+                <FaTrash color="red" />
               </button>
             </div>
           )}
@@ -46,8 +55,21 @@ const Post: FC<Props> = ({ postData, comments, removePost }) => {
           </button>
         </div>
         <div className="postContent">
-          <h3>{title}</h3>
-          <p>{body}</p>
+          <textarea
+            className="postTitle"
+            style={{ textDecoration: edit ? "none" : "underline" }}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            readOnly={edit}
+          />
+          <textarea
+            className="postBodyText"
+            value={body}
+            rows={6}
+            style={{ textDecoration: edit ? "none" : "underline" }}
+            readOnly={edit}
+            onChange={(e) => setBody(e.target.value)}
+          />
         </div>
       </div>
       {showComment && (

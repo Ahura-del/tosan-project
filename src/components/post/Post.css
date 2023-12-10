@@ -71,4 +71,25 @@
   
   }
   
-  
+  .postTitle{
+    font-size: large;
+    border: none;
+    outline: none;
+    height: max-content;
+    resize: none;
+    overflow: hidden;
+    font-weight: bold;
+    margin:1rem 0 5px;
+    font-family: 'roboto',sans-serif;
+  }
+
+  .postBodyText{
+    border: none;
+    font-size: large;
+    height: max-content;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    font-family: 'roboto',sans-serif;
+
+  }

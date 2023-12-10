@@ -16,16 +16,25 @@ const [loading , setLoading] = useState<boolean>(false)
   useEffect(() => {
     (async () => {
       setLoading(true)
-      const data = await fetch(`${URL}/posts`);
-      const res = await data.json();
-      setPosts(res);
-      setLoading(false)
+      try {
+        const data = await fetch(`${URL}/posts`);
+        const res = await data.json();
+        setPosts(res);
+        setLoading(false)
+      } catch (error) {
+       console.log("fetch error",error) 
+      }
     })();
 
     (async () => {
-      const data = await fetch(`${URL}/comments`);
-      const res = await data.json();
-      setComments(res);
+      try {
+        const data = await fetch(`${URL}/comments`);
+        const res = await data.json();
+        setComments(res);
+      } catch (error) {
+       console.log("fetch error",error) 
+        
+      }
     })();
   }, []);
 
@@ -39,7 +48,7 @@ const [loading , setLoading] = useState<boolean>(false)
     }
   };
 
-  
+
   return (
     <div className="App">
       <div className="container">
