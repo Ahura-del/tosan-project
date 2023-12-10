@@ -42,3 +42,14 @@ overflow: auto;
   height: 5rem;
 }
 
+@media only screen and (max-width: 720px){
+  .container{
+    width: 100%;
+    margin: 0 auto;
+     background: #eeeeee;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+  }
+}
